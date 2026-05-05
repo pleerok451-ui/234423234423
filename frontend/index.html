@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#03061a" />
+    <meta name="description" content="A 3D cosmic visualization of every active Polymarket event. Float through a galaxy of prediction markets." />
+    <title>Polymarket Cosmos · A galaxy of prediction markets</title>
+    <style>
+      html, body, #root { margin: 0; padding: 0; height: 100%; background: #03061a; color: #e8ecff; overflow: hidden; font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      * { box-sizing: border-box; }
+      ::selection { background: rgba(120, 130, 255, 0.45); color: #fff; }
+      .boot {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        background: radial-gradient(ellipse at center, #0a1140 0%, #03061a 60%, #02030c 100%);
+        color: #aab2ff; font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase;
+        z-index: 9999; transition: opacity 600ms ease;
+      }
+      .boot.hide { opacity: 0; pointer-events: none; }
+      .boot::after {
+        content: ""; width: 220px; height: 1px; margin-left: 16px;
+        background: linear-gradient(90deg, transparent, #6f7bff, transparent);
+        animation: scan 1.6s ease-in-out infinite;
+      }
+      @keyframes scan { 0%,100% { opacity: 0.2; transform: translateX(-30%); } 50% { opacity: 1; transform: translateX(30%); } }
+    </style>
+  </head>
+  <body>
+    <div id="boot" class="boot"><span>Tuning into the Polymarket cosmos</span></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
